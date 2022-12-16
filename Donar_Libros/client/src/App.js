@@ -8,6 +8,8 @@ import NewBook from './views/NewBook';
 import MyBooks from './views/MyBooks';
 import TradeOne from './views/TradeOne';
 import OneTrade from './views/OneTrade';
+import Search from './views/Search';
+import NoFound from './views/NoFound';
 
 function App() {
   return (
@@ -21,6 +23,8 @@ function App() {
                 <Route path='/my-books' element={<MyBooks/>}/>
                 <Route path='/user/:id/trade/:tradeId' element={<TradeOne/>}/>
                 <Route path='/one-trade/:tradeId' element={<OneTrade/>}/>
+                <Route path='/busquedas/:search' element={<Search/>}/>
+                <Route path='/busquedas/not-found' element={<NoFound/>}/>
             </Routes>
         </UserProvider>
     </div>
