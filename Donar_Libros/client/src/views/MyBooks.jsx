@@ -43,7 +43,7 @@ const MyBooks = () => {
     const deleteOneBookFromServices = async (data) => {
         try{
             await deleteOneBook(data,user._id);
-            navigate('/my-books')
+            setMyBooks(myBooks.filter(book => book._id !==data));
         }catch(err){
             console.log(err)
         }
