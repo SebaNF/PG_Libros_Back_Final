@@ -1,7 +1,6 @@
 import React,{useState} from 'react';
 import { useNavigate } from 'react-router-dom';
 import LoginForm from '../components/LoginForm';
-import Navbar from '../components/Navbar';
 import { login, getUser } from '../services/user.services';
 import { useUser } from '../context/userContext';
 
@@ -33,8 +32,8 @@ const Login = () => {
 
     }
     return (
-        <div>
-            <Navbar/>
+        <div className = "card_libro">
+            
             <h1 className='display-5 mt-3'>Iniciar sesion</h1>
             {errors?.map((err,i)=>(<div key={i}>{err}</div>))}
             <LoginForm email="" password="" onSubmitProp={loginToWeb}/>

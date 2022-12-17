@@ -1,5 +1,4 @@
 import React, {useState,useEffect} from 'react';
-import Navbar from '../components/Navbar';
 import { useUser } from '../context/userContext';
 import { useNavigate } from 'react-router-dom';
 import { getAllBooks , addBookToInterest } from '../services/book.services';
@@ -47,9 +46,10 @@ const Home = () => {
     };
     
     return (
-        <div>
-            <Navbar/>
+        <div div className='card_form'>
+            
             <h1>Libros disponibles para intercambio</h1>
+            <div className="card">
             <table className='table'>
                 <thead>
                     <tr>
@@ -72,6 +72,7 @@ const Home = () => {
                     ))}
                 </tbody>
             </table>
+            </div>
         </div>
     );
 }

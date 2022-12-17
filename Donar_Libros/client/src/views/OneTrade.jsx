@@ -1,5 +1,4 @@
 import React, {useState , useEffect} from 'react';
-import Navbar from '../components/Navbar';
 import { useParams ,useNavigate } from 'react-router-dom';
 import { getOneTrade } from '../services/trade.services';
 import { bigDelete ,rejectTrade } from '../services/book.services';
@@ -67,7 +66,6 @@ const OneTrade = () => {
 
     return (
         <div>
-            <Navbar />
             <div>
                 <h1>Libro que das</h1>
                 <ul>

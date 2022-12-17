@@ -1,5 +1,4 @@
 import React,{useState,useEffect} from 'react';
-import Navbar from '../components/Navbar';
 import { useNavigate } from 'react-router-dom'
 import { useUser } from '../context/userContext';
 import { getMyBooksThatInterestOthers ,getOneBook, deleteOneBook } from '../services/book.services';
@@ -64,13 +63,35 @@ const MyBooks = () => {
     }, []);
     
     return (
-        <div>
-            <Navbar/>
+        <div >
+            
             <div className='container d-flex justify-content-evenly'>
 
-                <div>
-                    <h1>mis libros que interesan a otros usuarios</h1>
-                    <ul>
+                <div className="card_form">
+                    <h1>Mis Libros que Interesan a Otros</h1>
+                    <div className="card">
+                    <table className='table'>
+                        <thead>
+                            <tr>
+                                <th>Titulo</th>
+                                <th>Acciones</th>                        
+                            </tr>
+                        </thead>
+                        <tbody>
+                        {booksThatInterestOthers?.map((book,idx)=>(
+                                
+                                <tr key={idx}>
+                                    <td><p>{idx+1}</p>
+                                        <p>{book.title}</p></td>
+                                    
+                                    <td><button className='btn btn-dark' onMouseOver={()=>setBkId(book._id)} onClick={()=>toTradeOne(book.interestId)}>Ver informacion</button>
+                                    </td>    
+                                </tr>
+                            ))}
+                        </tbody>
+                    </table>
+                    </div>
+                    {/* <ul>
                         {booksThatInterestOthers?.map((book,idx)=>(
                             <li key={idx} className="list-group-item d-flex justify-content-between align-items-center">
                                 <p>{idx+1}</p>
@@ -78,20 +99,44 @@ const MyBooks = () => {
                                 <button className='btn btn-dark' onMouseOver={()=>setBkId(book._id)} onClick={()=>toTradeOne(book.interestId)}>Ver informacion</button>
                             </li>
                         ))}
-                    </ul>
+                    </ul> */}
                 </div>
 
-                <div>
-                    <h1>mis libros</h1>
-                    <ul>
+                <div className="card_form">
+                    <h1>Mis Libros</h1>
+                    <div className="card">
+                    <table className='table'>
+                <thead>
+                    <tr>
+                        <th>Titulo</th>
+                        <th>Acciones</th>                        
+                    </tr>
+                </thead>
+                <tbody>
+                    {myBooks?.map((book,idx)=>(
+                         
+                        <tr key={idx}>
+                            <td>{book.title}</td>
+                            
+                            <td><button className='btn btn-dark'>Editar informacion</button>
+                                <button className='btn btn-danger' onClick={()=>deleteOneBookFromServices(book._id)}>Borrar</button>
+                            </td>    
+                        </tr>
+                    ))}
+                </tbody>
+            </table>
+            </div>
+
+
+
+                    {/* <ul>
                         {myBooks?.map((book,idx)=>(
                             <li key={idx} className="list-group-item d-flex justify-content-between align-items-center">
                                 <p>{book.title}</p>
-                                <button className='btn btn-dark'>Editar informacion</button>
-                                <button className='btn btn-danger' onClick={()=>deleteOneBookFromServices(book._id)}>Borrar</button>
+                                
                             </li>
                         ))}
-                    </ul>
+                    </ul> */}
                 </div>
                 
             </div>

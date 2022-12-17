@@ -1,6 +1,9 @@
 import React from 'react';
 import {Formik,Field,Form} from 'formik';
 import * as Yup from 'yup'
+import { Link } from "react-router-dom";
+
+
 
 const RegisterForm = (props) => {
     const{firstName,lastName,email, password, confirmPassword, onSubmitProp}=props;
@@ -34,6 +37,7 @@ const RegisterForm = (props) => {
     return (
         <div>
         <h1 className='display-5 mt-3'>Formulario de registro</h1>
+        
         <Formik
             initialValues={{
                 firstName:firstName,
@@ -48,7 +52,8 @@ const RegisterForm = (props) => {
             >
             {({errors,touched})=>(
                 <Form>
-                    <div className= 'container w-50 mt-4 shadow-lg p-5 rounded'>
+                    <div className= '  container w-60 mt-4 shadow-lg p-5 rounded'>
+                    
 
                         <div className='align-self-center'>
                             <div className='row'>
@@ -82,7 +87,11 @@ const RegisterForm = (props) => {
                             </div>
                             
                             <button className='btn btn-dark m-3' type='submit' disabled={Object.values(errors).length>0 || Object.values(touched).length===0}>Crear usuario</button>
+                            <Link to="/">
+                              <button className="btn">Cancelar</button>
+                            </Link>
                         </div>
+                        
 
                     </div>
                 </Form>

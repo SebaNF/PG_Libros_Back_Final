@@ -76,8 +76,10 @@ const Search = () => {
 
 
     return (
-        <div>
+        <div className="card_libro">
+          
              <h1>Libros disponibles</h1>
+             <div className="card">
             <table className='table'>
                 <thead>
                     <tr>
@@ -100,6 +102,7 @@ const Search = () => {
                     ))}
                 </tbody>
             </table>
+            </div>
         </div>
     );
 }

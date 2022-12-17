@@ -38,3 +38,119 @@
     transform: rotate(360deg);
   }
 }
+
+#content
+{
+width: 100%;
+height: 500px;
+background-image: url("./img/books2.JPG");
+background-repeat: no-repeat;
+background-size: cover;
+float:left;
+
+}
+
+.userimg{
+  width:30px;
+  height:30px;
+  
+  background-color: #ffffff;
+  border: 2px solid #ffffff;
+  border-radius: 50px;
+  margin-right: 5px;
+  
+}
+
+.usuarioDisenio
+{
+  color:#FFFFFF;
+  margin-right: 45px;
+}
+
+
+.card_form { 
+  margin: 10% auto;
+  padding: 0.5%;
+  width: 700px;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+  /* color: #333333; */
+  color:#FFFF;
+   padding: 22px;
+   /*background-color: rgba(255, 255, 255, 0.8);*/
+   
+   background-color: #00000098;
+   border-radius: 15px; 
+   align-items: center;
+ 
+ }
+
+ .card_newlibro{
+  color:#000000;
+
+ }
+
+ .card_libro { 
+  margin: 10% auto;
+  padding: 0.5%;
+  width: 90%;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+  /* color: #333333; */
+  color:#ffffff;
+   padding: 22px;
+   /* background-color: rgba(255, 255, 255, 0.8); */
+   background-color: #00000098;
+   border-radius: 15px;   
+ 
+ }
+ 
+ 
+ .card_form h1
+ {
+   
+   /*color: rgb(175, 165, 165);*/
+   color:#FFFFFF;
+ }
+ 
+ .card_form .btn, .card_libro .btn {
+   background-color: #ef6c00;
+    border: 1px solid white; 
+    
+   border-radius: 40px;
+   padding: 8px 16px;
+   color: white;
+ }
+
+ .subnav-button
+ {
+  background-color: #ef6c00;
+  border: 1px solid white; 
+  
+ border-radius: 40px;
+ 
+ color: white;
+
+ }
+
+ p.error {
+  color: #ffffff;
+  font-size: 0.8rem;
+  padding: 4px 0;
+}
+input.error {
+  border-color: #d32f2f;
+}
+
+.login
+{
+
+    border-radius: 10px;
+    background-color: #00000098;
+    margin-top: 15%;
+    padding: 20px;
+    color:white;
+}
+
+li
+{
+  padding-right:20px;
+}
