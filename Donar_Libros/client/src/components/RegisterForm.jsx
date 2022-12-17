@@ -35,8 +35,8 @@ const RegisterForm = (props) => {
 
     })
     return (
-        <div>
-        <h1 className='display-5 mt-3'>Formulario de registro</h1>
+        <div className="card">
+        
         
         <Formik
             initialValues={{
@@ -52,38 +52,37 @@ const RegisterForm = (props) => {
             >
             {({errors,touched})=>(
                 <Form>
-                    <div className= '  container w-60 mt-4 shadow-lg p-5 rounded'>
-                    
+                    <div className= 'container w-60 shadow-lg p-5 rounded'>                    
 
                         <div className='align-self-center'>
                             <div className='row'>
                                 <label htmlFor='firstName'>Nombre:</label>
                                 <Field id='firstName' type='text' name='firstName'/>
-                                {errors.firstName && touched.firstName ? <p>{errors.firstName}</p>:null}
+                                {errors.firstName && touched.firstName ? <p className="error_red">{errors.firstName}</p>:null}
                             </div>
 
                             <div className='row'>
                                 <label htmlFor='lastName'>Apellido:</label>
                                 <Field id='lastName' type='text' name='lastName'/>
-                                {errors.lastName && touched.lastName ? <p>{errors.lastName}</p>:null}
+                                {errors.lastName && touched.lastName ? <p className="error_red">{errors.lastName}</p>:null}
                             </div>
 
                             <div className='row'>
                                 <label htmlFor='email'>Email:</label>
                                 <Field id='email' type='text' name='email'/>
-                                {errors.email && touched.email ? <p>{errors.email}</p>:null}
+                                {errors.email && touched.email ? <p className="error_red">{errors.email}</p>:null}
                             </div>
 
                             <div className='row'>
                                 <label htmlFor='password'>Contraseña:</label>
                                 <Field id='password' type='password' name='password'/>
-                                {errors.password && touched.password ? <p>{errors.password}</p>:null}
+                                {errors.password && touched.password ? <p className="error_red">{errors.password}</p>:null}
                             </div>
 
                             <div className='row'>
                                 <label htmlFor='confirmPassword'>Confirmar contraseña:</label>
                                 <Field id='confirmPassword' type='password' name='confirmPassword'/>
-                                {errors.confirmPassword && touched.confirmPassword ? <p>{errors.confirmPassword}</p>:null}
+                                {errors.confirmPassword && touched.confirmPassword ? <p className="error_red">{errors.confirmPassword}</p>:null}
                             </div>
                             
                             <button className='btn btn-dark m-3' type='submit' disabled={Object.values(errors).length>0 || Object.values(touched).length===0}>Crear usuario</button>

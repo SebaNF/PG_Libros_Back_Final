@@ -32,9 +32,10 @@ const TradeOne = () => {
     }, []);
 
     return (
-        <div>
-            <div>
-                <h1>Libros para intercambiar</h1>
+        <div className="card_form">
+            <h1>Libros para intercambiar</h1>
+            <div className="card">
+                
                 <ul>
                     {books?.map((book,idx)=>(
                         <li key={idx} className="list-group-item d-flex justify-content-between align-items-center">

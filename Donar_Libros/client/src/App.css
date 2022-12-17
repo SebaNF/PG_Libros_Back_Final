@@ -24,6 +24,7 @@
   display: flex;
   top:15px;
   right: 260px;
+  margin-right: 20px;
 
 }
 
@@ -149,6 +150,13 @@ float:left;
   font-size: 0.8rem;
   padding: 4px 0;
 }
+
+p.error_red {
+  color: #fe0404;
+  font-size: 0.8rem;
+  padding: 4px 0;
+}
+
 input.error {
   border-color: #d32f2f;
 }
@@ -167,3 +175,21 @@ li
 {
   padding-right:20px;
 }
+
+header {
+  background: rgba(0,0,0,0.9);
+  width: 100%;
+  position: fixed;
+  z-index: 100;
+}
+
+.card{
+  color: #000000;
+}
+
+.form_newbook
+{
+  padding: 0;
+  margin: 0;
+}
+

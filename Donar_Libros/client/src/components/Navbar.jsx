@@ -46,6 +46,7 @@ const Navbar = () => {
 
     return (
       <div>
+        <header>
             <nav id='nav-bar-container' className="navbar navbar-expand-lg navbar-dark bg-dark">
 
                 <a className="navbar-brand" href="/">
@@ -106,6 +107,7 @@ const Navbar = () => {
                         </div>
                     </div>
             </nav>
+            </header>
         </div>
     );
 }

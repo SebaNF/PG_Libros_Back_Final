@@ -4,6 +4,8 @@ import { useNavigate } from 'react-router-dom';
 import { getAllBooks , addBookToInterest } from '../services/book.services';
 
 
+
+
 const Home = () => {
     const [books,setBooks] = useState([]);
     const {user, setUser} = useUser();
@@ -46,33 +48,34 @@ const Home = () => {
     };
     
     return (
-        <div div className='card_form'>
+        <div className='card_libro'>            
+            <h1>Libros disponibles para intercambio</h1>      
             
-            <h1>Libros disponibles para intercambio</h1>
-            <div className="card">
-            <table className='table'>
+            <div className="card">            
+            <table className="table ">
                 <thead>
-                    <tr>
-                        <th>Titulo</th>
-                        <th>Género</th>
-                        <th>Autor</th>
-                        <th>Resumen</th>
-                        {user &&<th>Acciones</th>}
+                    <tr className="d-flex">
+                        <th className="col-3">Titulo</th>
+                        <th className="col-2">Género</th>
+                        <th className="col-2">Autor</th>
+                        <th className="col-3">Resumen</th>
+                        {user &&<th className="col-1">Acciones</th>}
                     </tr>
                 </thead>
                 <tbody>
                     {books?.map((book,idx)=>(
-                        <tr key={idx} className={user?._id===book.creatorId? "none":""} >
-                            <td>{book.title}</td>
-                            <td>{book.genre}</td>
-                            <td>{book.author}</td>
-                            <td>{book.summary}</td>
-                            <td>{renderBtn(book)}{/* {<button className='btn btn-dark' onClick={()=>addBookToInterestFromService(book._id,user._id)}>me interesa</button>} */}</td>
+                        <tr key={idx} className= {user?._id===book.creatorId? "none":"d-flex"} >
+                            <td className="col-3">{book.title.substring(1,40)}</td>
+                            <td className="col-2">{book.genre.substring(1,30)}</td>
+                            <td className="col-2">{book.author.substring(1,30)}</td>
+                            <td className="col-3">{book.summary.substring(1,50)}</td>
+                            <td className="col-1">{renderBtn(book)}{/* {<button className='btn btn-dark' onClick={()=>addBookToInterestFromService(book._id,user._id)}>me interesa</button>} */}</td>
                         </tr>
                     ))}
                 </tbody>
             </table>
-            </div>
+           
+            </div>               
         </div>
     );
 }

@@ -28,7 +28,7 @@ const RecommendationsForm = (props) => {
 
     })
     return (
-      <div className='card_newlibro'>
+      <div className="form_newbook">
             <Formik
                 initialValues={{
                     title: title,
@@ -76,13 +76,19 @@ const RecommendationsForm = (props) => {
                                 </div>
                             </div>
 
-                            <div className='col-3 m-2 d-flex justify-content-center'>
-                                <button className='btn btn-dark btn-sm mb-3' type="submit" disabled={Object.values(errors).length>0 || Object.values(touched).length===0}>
-                                    Crear Libro
-                                </button>
-                                <Link to="/"> 
-                                   <button className="btn">Cancelar</button>
-                                </Link>
+                            <div className='col-3 d-flex align-items-center justify-content-center p-9'>
+                                    
+                                    <button className='btn btn-dark btn-sm m-2 ' type="submit" disabled={Object.values(errors).length>0 || Object.values(touched).length===0}>
+                                        Crear Libro
+                                    </button>
+                                    
+                                    <Link to="/"> 
+                                    <button className="btn btn-dark btn-sm">Cancelar</button>
+                                    </Link>
+                                    
+                             
+                            {/* col-2  m-3 d-flex justify-content-center */}
+                            
                             </div>
 
                         </div>
