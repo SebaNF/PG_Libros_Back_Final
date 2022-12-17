@@ -46,7 +46,7 @@ const Navbar = () => {
 
     return (
       <div>
-            <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
+            <nav id='nav-bar-container' className="navbar navbar-expand-lg navbar-dark bg-dark">
 
                 <a className="navbar-brand" href="/">
                     InterBook
@@ -57,36 +57,36 @@ const Navbar = () => {
                 <ul className="navbar-nav">                        
 
                         <li className="nav-item">
-                           <a className="nav-link" href="/">
+                        <a className="nav-link" href="/">
                                 Inicio
-                            </a>
+                        </a>
                         </li>
                     
-                      <li className="nav-item">
-                           <a className="nav-link" href="/register">
-                                Registro
-                            </a>
-                        </li>
+                    {!user && <li className="nav-item">
+                        <a className="nav-link" href="/register">
+                            Registro
+                        </a>
+                        </li>}
                     
                         <li className="nav-item">
                             <a className="nav-link" href="/login">
-                                login
+                                Login
                             </a>
                         </li>
-                        <li className="nav-item">
+                        {user && <li className="nav-item">
                             <a className="nav-link" href="/new-book">
                                 Nuevo libro
                             </a>
-                        </li>
-                        <li className="nav-item">
+                        </li>}
+                        {user &&<li className="nav-item">
                             <a className="nav-link" href="/my-books">
                                 Mis libros y Solicitudes
                             </a>
-                        </li>
+                        </li>}
                     </ul>
                 
                     </div>
-                    <div>
+                    <div className='nav-form-container'>
                         <form className='nav-form' onSubmit={addParams}>
                             <input id='search-input' className='subnav-input' type='text' placeholder='Buscar' onChange={(e)=>setQuery(e.target.value)}></input>
                             <button type='submit' className='btn subnav-button' >Buscar</button>
@@ -99,7 +99,7 @@ const Navbar = () => {
                                 {renderInfo()}
                             </li>
                                 {/* {user && <button className='btn btn-outline-light btn-sm' onClick={logoutUser}>Logout</button>} */}
-                                <button className='btn subnav-button' onClick={logoutUser}>Logout</button>
+                                {user &&<button className='btn subnav-button' onClick={logoutUser}>Logout</button>}
                                 
                         </ul>
                 

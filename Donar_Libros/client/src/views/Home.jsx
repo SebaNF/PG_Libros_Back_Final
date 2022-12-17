@@ -57,7 +57,7 @@ const Home = () => {
                         <th>Género</th>
                         <th>Autor</th>
                         <th>Resumen</th>
-                        <th>Acciones</th>
+                        {user &&<th>Acciones</th>}
                     </tr>
                 </thead>
                 <tbody>
