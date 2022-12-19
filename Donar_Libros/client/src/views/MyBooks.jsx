@@ -115,7 +115,7 @@ const MyBooks = () => {
                     {myBooks?.map((book,idx)=>(
                          
                         <tr key={idx}>
-                            <td>{book.title.substring(1,30)}</td>
+                            <td>{book.title}</td>
                             
                             <td><button className='btn btn-dark'>Editar informacion</button>
                                 <button className='btn btn-danger' onClick={()=>deleteOneBookFromServices(book._id)}>Borrar</button>

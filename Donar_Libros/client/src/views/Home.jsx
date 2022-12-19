@@ -65,10 +65,10 @@ const Home = () => {
                 <tbody>
                     {books?.map((book,idx)=>(
                         <tr key={idx} className= {user?._id===book.creatorId? "none":"d-flex"} >
-                            <td className="col-3">{book.title.substring(1,40)}</td>
-                            <td className="col-2">{book.genre.substring(1,30)}</td>
-                            <td className="col-2">{book.author.substring(1,30)}</td>
-                            <td className="col-3">{book.summary.substring(1,50)}</td>
+                            <td className="col-3">{book.title}</td>
+                            <td className="col-2">{book.genre}</td>
+                            <td className="col-2">{book.author}</td>
+                            <td className="col-3">{book.summary}</td>
                             <td className="col-1">{renderBtn(book)}{/* {<button className='btn btn-dark' onClick={()=>addBookToInterestFromService(book._id,user._id)}>me interesa</button>} */}</td>
                         </tr>
                     ))}
