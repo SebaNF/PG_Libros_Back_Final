@@ -65,9 +65,6 @@ const Search = () => {
             const response = await addBookToInterest(bookId,userId)
             console.log(response.data)
             setUser(response.data.user);
-            
-            /* const response = await simplePut(`/api/user/${user._id}`,user);
-            console.log(response) */
             navigate(`/my-books`);
         }catch(err){
             console.log(err)
@@ -97,7 +94,7 @@ const Search = () => {
                             <td>{book.genre}</td>
                             <td>{book.author}</td>
                             <td>{book.summary}</td>
-                            <td>{renderBtn(book)}{/* {<button className='btn btn-dark' onClick={()=>addBookToInterestFromService(book._id,user._id)}>me interesa</button>} */}</td>
+                            <td>{renderBtn(book)}</td>
                         </tr>
                     ))}
                 </tbody>

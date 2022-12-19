@@ -29,7 +29,7 @@ function App() {
                 <Route path='/busquedas/:search' element={<Search/>}/>
                 <Route path='/busquedas/not-found' element={<NoFound/>}/>
             </Routes>
-            </div>
+        </div>
         </UserProvider>
     </div>
   );

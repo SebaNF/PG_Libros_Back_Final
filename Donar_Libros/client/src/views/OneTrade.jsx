@@ -78,7 +78,7 @@ const OneTrade = () => {
                 </ul>
             </div>
 
-            <div >
+            <div>
                 <h1>Libro que recibes</h1>
                 <ul>
                     {bookTwo?.map((book,idx)=>(
@@ -98,8 +98,8 @@ const OneTrade = () => {
                 <button className='btn btn-dark' onClick={()=>closeTrade()}>Cerrar intercambio</button>
                 <button className='btn btn-dark' onClick={()=>rejectT()}>Rechazar intercambio</button>
                 <Link to="/">
-                              <button className="btn">Cancelar</button>
-               </Link>
+                    <button className="btn">Cancelar</button>
+                </Link>
             </div>
         </div>
     );

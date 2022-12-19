@@ -52,29 +52,28 @@ const Home = () => {
             <h1>Libros disponibles para intercambio</h1>      
             
             <div className="card">            
-            <table className="table ">
-                <thead>
-                    <tr className="d-flex">
-                        <th className="col-3">Titulo</th>
-                        <th className="col-2">Género</th>
-                        <th className="col-2">Autor</th>
-                        <th className="col-3">Resumen</th>
-                        {user &&<th className="col-1">Acciones</th>}
-                    </tr>
-                </thead>
-                <tbody>
-                    {books?.map((book,idx)=>(
-                        <tr key={idx} className= {user?._id===book.creatorId? "none":"d-flex"} >
-                            <td className="col-3">{book.title}</td>
-                            <td className="col-2">{book.genre}</td>
-                            <td className="col-2">{book.author}</td>
-                            <td className="col-3">{book.summary}</td>
-                            <td className="col-1">{renderBtn(book)}{/* {<button className='btn btn-dark' onClick={()=>addBookToInterestFromService(book._id,user._id)}>me interesa</button>} */}</td>
+                <table className="table ">
+                    <thead>
+                        <tr className="d-flex">
+                            <th className="col-3">Titulo</th>
+                            <th className="col-2">Género</th>
+                            <th className="col-2">Autor</th>
+                            <th className="col-3">Resumen</th>
+                            {user &&<th className="col-1">Acciones</th>}
                         </tr>
-                    ))}
-                </tbody>
-            </table>
-           
+                    </thead>
+                    <tbody>
+                        {books?.map((book,idx)=>(
+                            <tr key={idx} className= {user?._id===book.creatorId? "none":"d-flex"} >
+                                <td className="col-3">{book.title}</td>
+                                <td className="col-2">{book.genre}</td>
+                                <td className="col-2">{book.author}</td>
+                                <td className="col-3">{book.summary}</td>
+                                <td className="col-1">{renderBtn(book)}{/* {<button className='btn btn-dark' onClick={()=>addBookToInterestFromService(book._id,user._id)}>me interesa</button>} */}</td>
+                            </tr>
+                        ))}
+                    </tbody>
+                </table>
             </div>               
         </div>
     );
