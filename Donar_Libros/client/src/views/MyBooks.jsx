@@ -81,7 +81,7 @@ const MyBooks = () => {
                         {booksThatInterestOthers?.map((book,idx)=>(
                                 
                                 <tr key={idx}>
-                                    <td><p>{book.title.substring(1,30)}</p></td>
+                                    <td><p>{book.title}</p></td>
                                     
                                     <td><button className='btn btn-dark' onMouseOver={()=>setBkId(book._id)} onClick={()=>toTradeOne(book.interestId)}>Ver informacion</button>
                                     </td>    
