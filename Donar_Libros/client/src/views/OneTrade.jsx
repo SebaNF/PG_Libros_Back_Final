@@ -67,7 +67,7 @@ const OneTrade = () => {
 
     return (
         <div className="card_form">
-            <div className="card">
+            <div className="">
                 <h1>Libro que das</h1>
                 <ul>
                     {bookOne?.map((book,idx)=>(
