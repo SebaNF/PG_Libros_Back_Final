@@ -47,66 +47,61 @@ const Navbar = () => {
     return (
       <div>
         <header>
-            <nav id='nav-bar-container' className="navbar navbar-expand-lg navbar-dark bg-dark">
+                <nav id='nav-bar-container' className="navbar navbar-expand-lg navbar-dark bg-dark">
+                    <a className="navbar-brand" href="/">
+                        InterBook
+                    </a>
+                    <div className="navbar" id="navbarNav">
+                        <ul className="navbar-nav">                        
+                            <li className="nav-item">
+                                <a className="nav-link" href="/">
+                                    Inicio
+                                </a>
+                            </li>
+                                {!user && <li className="nav-item">
+                                <a className="nav-link" href="/register">
+                                    Registro
+                                </a>
+                            </li>}
+                        
+                            <li className="nav-item">
+                                <a className="nav-link" href="/login">
+                                    Login
+                                </a>
+                            </li>
 
-                <a className="navbar-brand" href="/">
-                    InterBook
-                </a>
-                <div className="navbar" id="navbarNav">
+                            {user && <li className="nav-item">
+                                <a className="nav-link" href="/new-book">
+                                    Nuevo libro
+                                </a>
+                            </li>}
 
-                
-                <ul className="navbar-nav">                        
-
-                        <li className="nav-item">
-                        <a className="nav-link" href="/">
-                                Inicio
-                        </a>
-                        </li>
-                    
-                    {!user && <li className="nav-item">
-                        <a className="nav-link" href="/register">
-                            Registro
-                        </a>
-                        </li>}
-                    
-                        <li className="nav-item">
-                            <a className="nav-link" href="/login">
-                                Login
-                            </a>
-                        </li>
-                        {user && <li className="nav-item">
-                            <a className="nav-link" href="/new-book">
-                                Nuevo libro
-                            </a>
-                        </li>}
-                        {user &&<li className="nav-item">
-                            <a className="nav-link" href="/my-books">
-                                Mis libros y Solicitudes
-                            </a>
-                        </li>}
-                    </ul>
-                
+                            {user &&<li className="nav-item">
+                                <a className="nav-link" href="/my-books">
+                                    Mis libros y Solicitudes
+                                </a>
+                            </li>}
+                        </ul>
                     </div>
+
                     <div className='nav-form-container'>
                         <form className='nav-form' onSubmit={addParams}>
                             <input id='search-input' className='subnav-input' type='text' placeholder='Buscar' onChange={(e)=>setQuery(e.target.value)}></input>
                             <button type='submit' className='btn subnav-button' >Buscar</button>
                         </form>
                     </div>
+                        
                     <div className='collapse navbar-collapse justify-content-end'>
                         <div className ="nav_end">
-                        <ul className='navbar-nav d-flex'>
-                            <li className='navbar-text'>
-                                {renderInfo()}
-                            </li>
-                                {/* {user && <button className='btn btn-outline-light btn-sm' onClick={logoutUser}>Logout</button>} */}
+                            <ul className='navbar-nav d-flex'>
+                                <li className='navbar-text'>
+                                    {renderInfo()}
+                                </li>
                                 {user &&<button className='btn subnav-button' onClick={logoutUser}>Logout</button>}
-                                
-                        </ul>
-                
+                            </ul>
                         </div>
                     </div>
-            </nav>
+                </nav>
             </header>
         </div>
     );
