@@ -50,17 +50,17 @@ const Home = () => {
     
     return (
         <div className='card_libro'>            
-            <h1>Libros disponibles para intercambio</h1>      
+            <h1>libros disponibles</h1>      
             
             <div className="card">            
-                <table className="table ">
+                <table className="table">
                     <thead>
                         <tr className="d-flex">
                             <th className="col-3">Titulo</th>
                             <th className="col-2">Género</th>
                             <th className="col-2">Autor</th>
                             <th className="col-3">Resumen</th>
-                            {user &&<th className="col-1">Acciones</th>}
+                            {user &&<th className="col-2">Acciones</th>}
                         </tr>
                     </thead>
                     <tbody>
@@ -70,7 +70,7 @@ const Home = () => {
                                 <td className="col-2">{book.genre}</td>
                                 <td className="col-2">{book.author}</td>
                                 <td className="col-3">{book.summary}</td>
-                                <td className="col-1">{renderBtn(book)}</td>
+                                <td className="col-2">{renderBtn(book)}</td>
                             </tr>
                         ))}
                     </tbody>
