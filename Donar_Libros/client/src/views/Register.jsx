@@ -1,6 +1,5 @@
 import React, {useState} from 'react';
 import RegisterForm from '../components/RegisterForm';
-import Navbar from '../components/Navbar';
 import {useNavigate} from 'react-router-dom';
 import { createUser,getUser } from '../services/user.services';
 import {useUser} from '../context/userContext';
@@ -31,10 +30,12 @@ const Register = () => {
         }
     }
     return (
-        <div>
-            <Navbar/>
+        <div className='card_form'>
+            <h1 className='display-5 mt-3'>Formulario de Registro</h1>
+            
             {errors?.map((err,i)=>(<div key={i}>{err}</div>))}
             <RegisterForm firstName="" lastName="" email="" password="" confirmPassword="" onSubmitProp={newUser} />
+            
         </div>
     );
 }

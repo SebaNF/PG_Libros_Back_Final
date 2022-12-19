@@ -1,5 +1,4 @@
 import React, {useEffect,useState} from 'react';
-import Navbar from '../components/Navbar';
 import { useParams , useNavigate } from 'react-router-dom';
 import { getAllBookOfAnUser } from '../services/book.services';
 import { addToTrade } from '../services/trade.services';
@@ -33,10 +32,10 @@ const TradeOne = () => {
     }, []);
 
     return (
-        <div>
-            <Navbar />
-            <div>
-                <h1>Libros para intercambiar</h1>
+        <div className="card_form">
+            <h1>Libros para intercambiar</h1>
+            <div className="card">
+                
                 <ul>
                     {books?.map((book,idx)=>(
                         <li key={idx} className="list-group-item d-flex justify-content-between align-items-center">

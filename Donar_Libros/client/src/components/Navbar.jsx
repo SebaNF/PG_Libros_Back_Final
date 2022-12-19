@@ -4,7 +4,6 @@ import {useUser} from '../context/userContext';
 import { logout } from '../services/user.services';
 
 
-
 const Navbar = () => {
     const {user,setUser} = useUser();
     const [query, setQuery] = useState();
@@ -20,7 +19,13 @@ const Navbar = () => {
 
     const logoutUser = async()=>{
         const {success} = await logout();
-        if(success) setUser(null)
+        if(success) 
+        {
+            setUser(null);
+            navigate('/');
+
+        }
+        
         else window.alert("Error. No hemos podido desloguear tu usuario")
     };
     const addParams = (e) =>{
@@ -41,49 +46,68 @@ const Navbar = () => {
 
     return (
       <div>
-            <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
+        <header>
+            <nav id='nav-bar-container' className="navbar navbar-expand-lg navbar-dark bg-dark">
+
                 <a className="navbar-brand" href="/">
                     InterBook
                 </a>
                 <div className="navbar" id="navbarNav">
-                    <ul className="navbar-nav">
+
+                
+                <ul className="navbar-nav">                        
+
                         <li className="nav-item">
-                            <a className="nav-link" href="/register">
-                                register
-                            </a>
+                        <a className="nav-link" href="/">
+                                Inicio
+                        </a>
                         </li>
+                    
+                    {!user && <li className="nav-item">
+                        <a className="nav-link" href="/register">
+                            Registro
+                        </a>
+                        </li>}
+                    
                         <li className="nav-item">
                             <a className="nav-link" href="/login">
-                                login
+                                Login
                             </a>
                         </li>
-                        <li className="nav-item">
+                        {user && <li className="nav-item">
                             <a className="nav-link" href="/new-book">
-                                crear nuevo libro
+                                Nuevo libro
                             </a>
-                        </li>
-                        <li className="nav-item">
+                        </li>}
+                        {user &&<li className="nav-item">
                             <a className="nav-link" href="/my-books">
-                                mis libros y solicitudes
+                                Mis libros y Solicitudes
                             </a>
-                        </li>
+                        </li>}
                     </ul>
+                
                     </div>
-                    <div>
+                    <div className='nav-form-container'>
                         <form className='nav-form' onSubmit={addParams}>
                             <input id='search-input' className='subnav-input' type='text' placeholder='Buscar' onChange={(e)=>setQuery(e.target.value)}></input>
-                            <button type='submit' className='subnav-button' >Buscar</button>
+                            <button type='submit' className='btn subnav-button' >Buscar</button>
                         </form>
                     </div>
                     <div className='collapse navbar-collapse justify-content-end'>
+                        <div className ="nav_end">
                         <ul className='navbar-nav d-flex'>
                             <li className='navbar-text'>
                                 {renderInfo()}
                             </li>
-                                {user && <button className='btn btn-outline-light btn-sm' onClick={logoutUser}>Logout</button>}
+                                {/* {user && <button className='btn btn-outline-light btn-sm' onClick={logoutUser}>Logout</button>} */}
+                                {user &&<button className='btn subnav-button' onClick={logoutUser}>Logout</button>}
+                                
                         </ul>
+                
+                        </div>
                     </div>
             </nav>
+            </header>
         </div>
     );
 }

@@ -1,5 +1,4 @@
 import React from 'react';
-import Navbar from '../components/Navbar';
 import NewBookForm from '../components/NewBookForm';
 import { useNavigate } from 'react-router-dom';
 import { createBook } from '../services/book.services';
@@ -20,8 +19,8 @@ const NewBook = () => {
 
 
     return (
-        <div>
-            <Navbar/>
+        <div className='card_libro'>
+            <h1 className='display-5 mt-3'>Ingreso de Libros</h1>
             <NewBookForm title="" author="" genre="" summary="" onSubmitProp={createBookFromService}/>
         </div>
     );

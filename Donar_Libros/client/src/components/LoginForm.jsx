@@ -1,6 +1,7 @@
 import React from 'react';
 import {Formik,Field,Form} from 'formik';
 import * as Yup from 'yup'
+import { Link } from "react-router-dom";
 
 const LoginForm = (props) => {
     const{email, password, onSubmitProp}=props;
@@ -29,7 +30,7 @@ const LoginForm = (props) => {
             >
             {({errors,touched})=>(
                 <Form>
-                    <div className= 'container card w-75 text-white bg-dark mt-5 shadow-lg p-3 mb-5 rounded'>
+                    <div className= ' container w-75 text-white  mt-5 shadow-lg p-3 mb-5 rounded'>
                         <div className='card-body d-flex justify-content-evenly'>
 
                             <div className='mt-3'>
@@ -45,8 +46,14 @@ const LoginForm = (props) => {
                             </div>
                             
                             <div className='mt-0'>
-                                <button className='btn btn-outline-light mt-3' type='submit' disabled={Object.values(errors).length>0 || Object.values(touched).length===0}>Log in</button>
+                                {/* <button className='btn btn-outline-light mt-3' type='submit' disabled={Object.values(errors).length>0 || Object.values(touched).length===0}>Log in</button> */}
+                                <button className='btn  mt-3' type='submit' disabled={Object.values(errors).length>0 || Object.values(touched).length===0}>Log in</button>
+                               
                             </div>
+                            <Link to="/">
+                                   <button className="btn  mt-3" >Cancelar</button>
+                           </Link>
+
                         </div>
                     </div>
                 </Form>

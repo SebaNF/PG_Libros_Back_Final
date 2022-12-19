@@ -1,9 +1,9 @@
 import React, {useState , useEffect} from 'react';
-import Navbar from '../components/Navbar';
 import { useParams ,useNavigate } from 'react-router-dom';
 import { getOneTrade } from '../services/trade.services';
 import { bigDelete ,rejectTrade } from '../services/book.services';
 import { getUser } from '../services/user.services';
+import { Link } from "react-router-dom";
 
 
 const OneTrade = () => {
@@ -66,9 +66,8 @@ const OneTrade = () => {
     }, []);
 
     return (
-        <div>
-            <Navbar />
-            <div>
+        <div className="card_form">
+            <div className="card">
                 <h1>Libro que das</h1>
                 <ul>
                     {bookOne?.map((book,idx)=>(
@@ -79,7 +78,7 @@ const OneTrade = () => {
                 </ul>
             </div>
 
-            <div>
+            <div >
                 <h1>Libro que recibes</h1>
                 <ul>
                     {bookTwo?.map((book,idx)=>(
@@ -98,6 +97,9 @@ const OneTrade = () => {
             <div>
                 <button className='btn btn-dark' onClick={()=>closeTrade()}>Cerrar intercambio</button>
                 <button className='btn btn-dark' onClick={()=>rejectT()}>Rechazar intercambio</button>
+                <Link to="/">
+                              <button className="btn">Cancelar</button>
+               </Link>
             </div>
         </div>
     );

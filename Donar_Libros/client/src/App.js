@@ -8,13 +8,21 @@ import NewBook from './views/NewBook';
 import MyBooks from './views/MyBooks';
 import TradeOne from './views/TradeOne';
 import OneTrade from './views/OneTrade';
+<<<<<<< HEAD
 import NoFound from './views/NoFound';
 import Search from './views/Search';
+=======
+import Search from './views/Search';
+import NoFound from './views/NoFound';
+import Navbar from "./components/Navbar";
+>>>>>>> ae275bb8db3d74df8c14bf866e544d40f01aae5e
 
 function App() {
   return (
     <div className="App">
         <UserProvider>
+        <Navbar/>
+        <div id="content">
             <Routes>
                 <Route path='/' element={<Home/>}/>
                 <Route path='/register' element={<Register/>}/>
@@ -26,6 +34,7 @@ function App() {
                 <Route path='/busquedas/:search' element={<Search/>}/>
                 <Route path='/busquedas/not-found' element={<NoFound/>}/>
             </Routes>
+            </div>
         </UserProvider>
     </div>
   );
