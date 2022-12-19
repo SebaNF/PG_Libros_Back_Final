@@ -11,7 +11,12 @@ const TradeOne = () => {
     const getAllBookOfAnUserFromService = async () => {
         try{
             const result = await getAllBookOfAnUser(id);
+            if(result.data.length !== 0){
                 setBooks(result.data);
+            }else{
+                alert("Ups, el usuario no tiene libros para intecambiar");
+                navigate("/")
+            }
         }catch(err){
             console.log(err)
         }

@@ -33,7 +33,7 @@ const MyBooks = () => {
     const getOneBookFromService = async (data) => {
         try{
             const result = await getOneBook(data);
-            setTradeId(result.data.book.tradesId)
+            setTradeId(result.data.book.tradesId);
         }catch(err){
             console.log(err)
         }
