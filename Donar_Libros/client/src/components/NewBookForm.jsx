@@ -83,10 +83,9 @@ const RecommendationsForm = (props) => {
                                 </button>
                                 
                                 <Link to="/"> 
-                                <button className="btn btn-dark btn-sm">Cancelar</button>
+                                    <button className="btn btn-dark btn-sm">Cancelar</button>
                                 </Link>
                         </div>
-
                     </div>
                 </Form>
             )}

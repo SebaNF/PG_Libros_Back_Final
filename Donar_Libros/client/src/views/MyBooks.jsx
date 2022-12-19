@@ -24,7 +24,7 @@ const MyBooks = () => {
     const getBooksThatInterestOthersFromService = async () => {
         try{
             const result = await getMyBooksThatInterestOthers(user._id);
-            setBookThatInterestOthers(result.data)
+            setBookThatInterestOthers(result.data);
         }catch(err){
             console.log(err)
         }
@@ -43,6 +43,7 @@ const MyBooks = () => {
         try{
             await deleteOneBook(data,user._id);
             setMyBooks(myBooks.filter(book => book._id !==data));
+            alert("Libro borrado");
         }catch(err){
             console.log(err)
         }

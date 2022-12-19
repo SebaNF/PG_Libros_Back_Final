@@ -35,12 +35,13 @@ const Home = () => {
         }
     };
 
+
     const renderBtn = (book) =>{
 
         const aux = user?.booksImInterested.map(book=> book._id).map(libro=>libro.includes(book._id))
         if(user){
             if(aux.includes(true)){
-                return(<><button  className="btn btn-danger">Pendiente</button></>)
+                return(<><button  className="btn" onClick={()=>alert("Debes esperar a la respuesta del dueño del libro")}>Pendiente</button></>)
             }else{
                 return(<><button type="button" className="btn btn-warning" onClick={()=>addBookToInterestFromService(book._id,user._id)}>Me interesa</button></>)
             }
@@ -69,7 +70,7 @@ const Home = () => {
                                 <td className="col-2">{book.genre}</td>
                                 <td className="col-2">{book.author}</td>
                                 <td className="col-3">{book.summary}</td>
-                                <td className="col-1">{renderBtn(book)}{/* {<button className='btn btn-dark' onClick={()=>addBookToInterestFromService(book._id,user._id)}>me interesa</button>} */}</td>
+                                <td className="col-1">{renderBtn(book)}</td>
                             </tr>
                         ))}
                     </tbody>
