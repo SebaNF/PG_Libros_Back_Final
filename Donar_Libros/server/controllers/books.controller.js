@@ -322,7 +322,7 @@ module.exports.deleteOneBook = async (req,res) => {
         const filterUserOneBooks = userOneBooks.filter(book => book.id !== bookId);
         //actualizo el arreglo myBooks del userOne
         await User.findByIdAndUpdate(userOneId,{myBooks:filterUserOneBooks},{new:true});
-        console.log(userOneMyBooksThatInterestOther);
+        
         
         if(userOneMyBooksThatInterestOther.length !== 0) {
             //obtengo libro que quiero borrar del array userOneMyBooksThatInterestOther
@@ -348,7 +348,6 @@ module.exports.deleteOneBook = async (req,res) => {
             const tradeId = book.tradesId;
             //borro el trade donde esta
             await Trading.findByIdAndDelete(tradeId);
-            
         };
         //borro el libro 
         await Book.findByIdAndDelete(bookId);
