@@ -92,6 +92,7 @@ const MyBooks = () => {
                 </div>
 
                 <div className="card_form">
+
                     <h1>mis libros</h1>
                     <div className="card">
                         <table className='table table-hover mt-3'>
@@ -105,12 +106,13 @@ const MyBooks = () => {
                             {myBooks?.map((book,idx)=>(
                             <tr key={idx}>
                                 <td>{book.title}</td>   
-                                <td><button className='btn btn-danger' onClick={()=>deleteOneBookFromServices(book._id)}>Borrar</button></td>    
+                                <td><button className='btn btn-normal' onClick={()=>deleteOneBookFromServices(book._id)}>Borrar</button></td>    
                             </tr>
                             ))}
                             </tbody>
                         </table>
                     </div>
+                    
                 </div>
                 
             </div>

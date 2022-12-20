@@ -46,11 +46,11 @@ const LoginForm = (props) => {
                             </div>
                             
                             <div className='mt-0'>
-                                <button className='btn mt-3' type='submit' disabled={Object.values(errors).length>0 || Object.values(touched).length===0}>Log in</button>
+                                <button className='btn btn-normal mt-3' type='submit' disabled={Object.values(errors).length>0 || Object.values(touched).length===0}>Log in</button>
                             </div>
 
                             <Link to="/">
-                                <button className="btn mt-3" >Cancelar</button>
+                                <button className="btn btn-normal mt-3" >Cancelar</button>
                             </Link>
 
                         </div>

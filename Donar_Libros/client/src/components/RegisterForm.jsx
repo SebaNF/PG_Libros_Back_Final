@@ -84,9 +84,9 @@ const RegisterForm = (props) => {
                                     {errors.confirmPassword && touched.confirmPassword ? <p className="error_red">{errors.confirmPassword}</p>:null}
                                 </div>
                                 
-                                <button className='btn  m-3' type='submit' disabled={Object.values(errors).length>0 || Object.values(touched).length===0}>crear</button>
+                                <button className='btn btn-normal  m-3' type='submit' disabled={Object.values(errors).length>0 || Object.values(touched).length===0}>crear</button>
                                 <Link to="/">
-                                    <button className="btn ">cancelar</button>
+                                    <button className="btn btn-normal ">cancelar</button>
                                 </Link>
                             </div>
                             

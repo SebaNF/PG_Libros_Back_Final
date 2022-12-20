@@ -59,6 +59,10 @@ const OneTrade = () => {
         }catch(err){
             console.log(err)
         }
+    };
+
+    const toHome = () => {
+        navigate("/");
     }
 
     useEffect(() => {
@@ -69,9 +73,9 @@ const OneTrade = () => {
         <div className="card_form">
             <div className="">
                 <h1>Libro que das</h1>
-                <ul>
+                <ul className='pt-2 me-5'>
                     {bookOne?.map((book,idx)=>(
-                    <li key={idx} className="list-group-item d-flex justify-content-between align-items-center">
+                    <li key={idx} className="list-group-item d-flex justify-content-between">
                         <p>{book.title}</p>
                         <p>{book.author}</p>
                     </li>))}
@@ -80,9 +84,9 @@ const OneTrade = () => {
 
             <div>
                 <h1>Libro que recibes</h1>
-                <ul>
+                <ul className='pt-2 me-5'>
                     {bookTwo?.map((book,idx)=>(
-                    <li key={idx} className="list-group-item d-flex justify-content-between align-items-center">
+                    <li key={idx} className="list-group-item d-flex justify-content-between ">
                         <p>{book.title}</p>
                         <p>{book.author}</p>
                     </li>))}
@@ -90,16 +94,16 @@ const OneTrade = () => {
             </div>
 
             <div>
-                <button className='btn btn-dark' onClick={()=> getUserFromService()}>Ver información</button>
-                {userEmail && <p>{userEmail}</p>}
+                <button className='btn btn-primary' type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample" onClick={()=> getUserFromService()}>Ver información de contacto</button>
+                <div className='collapse' id="collapseExample">{userEmail && <p>{userEmail}</p>}</div>
             </div>
 
-            <div>
-                <button className='btn btn-dark' onClick={()=>closeTrade()}>Cerrar intercambio</button>
-                <button className='btn btn-dark' onClick={()=>rejectT()}>Rechazar intercambio</button>
-                <Link to="/">
-                    <button className="btn">Cancelar</button>
-                </Link>
+            <div className='btn-group mt-3' role={"group"}>
+                <button className='btn btn-success' onClick={()=>closeTrade()}> intercambio exitoso</button>
+                <button className='btn btn-danger' onClick={()=>rejectT()}>intercambio fallido</button>
+            </div>
+            <div className='mt-2'>
+                <button className="btn btn-secondary" onClick={()=>toHome()}>Cancelar</button>
             </div>
         </div>
     );

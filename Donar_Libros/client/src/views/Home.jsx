@@ -42,7 +42,7 @@ const Home = () => {
         if(user){
             if(aux.includes(true)){
                 return(<>
-                    <button  className="btn" onClick={()=>alert("Debes esperar a la respuesta del dueño del libro")}><span className='spinner-border spinner-border-sm me-2'></span>pendiente</button>
+                    <button  className="btn btn-info" onClick={()=>alert("Debes esperar a la respuesta del dueño del libro")}><span className='spinner-border spinner-border-sm me-2'></span>pendiente</button>
                     </>)
             }else{
                 return(<><button type="button" className="btn btn-warning" onClick={()=>addBookToInterestFromService(book._id,user._id)}>me interesa</button></>)
@@ -64,7 +64,7 @@ const Home = () => {
                             <th className="col-2">Género</th>
                             <th className="col-2">Autor</th>
                             <th className="col-3">Resumen</th>
-                            {!user ?  <th className="col-2"></th> : <th className='none'></th>}
+                            {!user ?  <th className="col-2"></th> : <th className='col-2'>acciones</th>}
                         </tr>
                     </thead>
                     <tbody>
