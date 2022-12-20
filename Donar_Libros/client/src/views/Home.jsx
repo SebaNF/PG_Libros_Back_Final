@@ -42,7 +42,7 @@ const Home = () => {
         if(user){
             if(aux.includes(true)){
                 return(<>
-                    <button  className="btn btn-danger" onClick={()=>alert("Debes esperar a la respuesta del dueño del libro")}><span className='spinner-border spinner-border-sm me-2'></span>pendiente</button>
+                    <button  className="btn" onClick={()=>alert("Debes esperar a la respuesta del dueño del libro")}><span className='spinner-border spinner-border-sm me-2'></span>pendiente</button>
                     </>)
             }else{
                 return(<><button type="button" className="btn btn-warning" onClick={()=>addBookToInterestFromService(book._id,user._id)}>me interesa</button></>)
@@ -55,7 +55,8 @@ const Home = () => {
 
             <h1 className='mb-3'>libros disponibles</h1>      
             
-            <div className="card md-light">            
+            <div className="card md-light">
+
                 <table className="table table-hover mt-3">
                     <thead>
                         <tr className="d-flex">
@@ -68,7 +69,12 @@ const Home = () => {
                     </thead>
                     <tbody>
                         {books?.map((book,idx)=>(
-                            <tr key={idx} className= {user?._id===book.creatorId? "none":"d-flex"} >
+                            user?._id===book.creatorId ? 
+                            <tr key={idx} className={idx === 1 ? "none":""}>
+                                <td><p> Ups, parece que no hay nuevos libros para intercambiar</p></td>
+                            </tr> :
+
+                            <tr key={idx} className= {"d-flex"} >
                                 <td className="col-3">{book.title}</td>
                                 <td className="col-2">{book.genre}</td>
                                 <td className="col-2">{book.author}</td>
@@ -78,7 +84,9 @@ const Home = () => {
                         ))}
                     </tbody>
                 </table>
-            </div>               
+
+            </div>
+
         </div>
     );
 }

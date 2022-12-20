@@ -77,12 +77,12 @@ const RecommendationsForm = (props) => {
                         </div>
 
                         <div className='col-2 d-flex align-items-center justify-content-center p-9'>
-                            <button className='btn btn-sm m-2 ' type="submit" disabled={Object.values(errors).length>0 || Object.values(touched).length===0}>
+                            <button className='btn btn-sm m-2 btn-outline-success' type="submit" disabled={Object.values(errors).length>0 || Object.values(touched).length===0}>
                                 crear
                             </button>
                             
                             <Link to="/"> 
-                                <button className="btn btn-sm">cancelar</button>
+                                <button className="btn btn-sm btn-outline-danger">cancelar</button>
                             </Link>
                         </div>
                     </div>

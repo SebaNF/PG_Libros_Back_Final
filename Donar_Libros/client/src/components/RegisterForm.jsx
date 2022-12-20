@@ -51,9 +51,9 @@ const RegisterForm = (props) => {
                 >
                 {({errors,touched})=>(
                     <Form>
-                        <div className= 'container w-60 shadow-lg p-5 rounded'>                    
+                        <div className= 'p-5'>                    
 
-                            <div className='align-self-center'>
+                            <div className=''>
                                 <div className='row'>
                                     <label htmlFor='firstName'>Nombre:</label>
                                     <Field id='firstName' type='text' name='firstName'/>
@@ -84,9 +84,9 @@ const RegisterForm = (props) => {
                                     {errors.confirmPassword && touched.confirmPassword ? <p className="error_red">{errors.confirmPassword}</p>:null}
                                 </div>
                                 
-                                <button className='btn btn-dark m-3' type='submit' disabled={Object.values(errors).length>0 || Object.values(touched).length===0}>Crear usuario</button>
+                                <button className='btn  m-3' type='submit' disabled={Object.values(errors).length>0 || Object.values(touched).length===0}>crear</button>
                                 <Link to="/">
-                                    <button className="btn">Cancelar</button>
+                                    <button className="btn ">cancelar</button>
                                 </Link>
                             </div>
                             
