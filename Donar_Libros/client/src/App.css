@@ -74,7 +74,6 @@
     margin: 10% auto;
     padding: 0.5%;
     width: 90%;
-    box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
     color:#ffffff;
     padding: 22px;
     background-color: #00000098;
@@ -86,7 +85,6 @@
 }
 
 .card_form .btn, .card_libro .btn {
-    background-color: #ef6c00;
     border: 1px solid white; 
     border-radius: 40px;
     padding: 8px 16px;
@@ -146,5 +144,8 @@ header {
     color:#000000;
 }
 
+tbody > tr:last-child > td {
+    border-bottom: 0;
+  }
 
 

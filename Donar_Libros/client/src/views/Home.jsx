@@ -41,26 +41,29 @@ const Home = () => {
         const aux = user?.booksImInterested.map(book=> book._id).map(libro=>libro.includes(book._id))
         if(user){
             if(aux.includes(true)){
-                return(<><button  className="btn" onClick={()=>alert("Debes esperar a la respuesta del dueño del libro")}>Pendiente</button></>)
+                return(<>
+                    <button  className="btn btn-danger" onClick={()=>alert("Debes esperar a la respuesta del dueño del libro")}><span className='spinner-border spinner-border-sm me-2'></span>pendiente</button>
+                    </>)
             }else{
-                return(<><button type="button" className="btn btn-warning" onClick={()=>addBookToInterestFromService(book._id,user._id)}>Me interesa</button></>)
+                return(<><button type="button" className="btn btn-warning" onClick={()=>addBookToInterestFromService(book._id,user._id)}>me interesa</button></>)
             }
         }
     };
     
     return (
-        <div className='card_libro'>            
-            <h1>libros disponibles</h1>      
+        <div className='card_libro'> 
+
+            <h1 className='mb-3'>libros disponibles</h1>      
             
-            <div className="card">            
-                <table className="table">
+            <div className="card md-light">            
+                <table className="table table-hover mt-3">
                     <thead>
                         <tr className="d-flex">
                             <th className="col-3">Titulo</th>
                             <th className="col-2">Género</th>
                             <th className="col-2">Autor</th>
                             <th className="col-3">Resumen</th>
-                            {user &&<th className="col-2">Acciones</th>}
+                            {user &&<th className="col-2"></th>}
                         </tr>
                     </thead>
                     <tbody>
