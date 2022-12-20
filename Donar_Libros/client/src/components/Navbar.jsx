@@ -53,7 +53,11 @@ const Navbar = () => {
 
     const toMyBooks = () => {
         navigate('/my-books');
-    }
+    };
+
+    const toMyTrades = () => {
+        navigate('/my-trades');
+    };
 
 
     return (
@@ -96,11 +100,20 @@ const Navbar = () => {
                                 </button>
                             </li>}
 
-                            {user &&<li className="nav-item">
+                            {user &&
+                            <li className="nav-item">
                                 <button className="btn btn-outline-light" onClick={()=>toMyBooks()}>
-                                    Mis libros y Solicitudes
+                                    mis libros
                                 </button>
                             </li>}
+
+                            {user &&
+                            <li className="nav-item">
+                                <button className="btn btn-outline-light" onClick={()=>toMyTrades()}>
+                                    mis intercambios
+                                </button>
+                            </li>}
+
                         </ul>
                     </div>
 

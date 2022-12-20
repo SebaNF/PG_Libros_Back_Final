@@ -8,6 +8,7 @@ import NewBook from './views/NewBook';
 import MyBooks from './views/MyBooks';
 import TradeOne from './views/TradeOne';
 import OneTrade from './views/OneTrade';
+import MyTrades from './views/MyTrades';
 import NoFound from './views/NoFound';
 import Search from './views/Search';
 import Navbar from './components/Navbar'
@@ -24,6 +25,7 @@ function App() {
                 <Route path='/login' element={<Login/>}/>
                 <Route path='/new-book' element={<NewBook/>}/>
                 <Route path='/my-books' element={<MyBooks/>}/>
+                <Route path='/my-trades' element={<MyTrades/>}/>
                 <Route path='/user/:id/trade/:tradeId' element={<TradeOne/>}/>
                 <Route path='/one-trade/:tradeId' element={<OneTrade/>}/>
                 <Route path='/busquedas/:search' element={<Search/>}/>
