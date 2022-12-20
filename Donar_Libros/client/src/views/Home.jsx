@@ -64,12 +64,12 @@ const Home = () => {
                             <th className="col-2">Género</th>
                             <th className="col-2">Autor</th>
                             <th className="col-3">Resumen</th>
-                            {user ?  <th className="col-2"></th> : <th className='none'></th>}
+                            {!user ?  <th className="col-2"></th> : <th className='none'></th>}
                         </tr>
                     </thead>
                     <tbody>
                         {books?.map((book,idx)=>(
-                            <tr key={idx} className= {user._id===book.creatorId ? "none" :"d-flex"} >
+                            <tr key={idx} className= {user?._id===book.creatorId ? "none" :"d-flex"} >
                                 <td className="col-3">{book.title}</td>
                                 <td className="col-2">{book.genre}</td>
                                 <td className="col-2">{book.author}</td>
