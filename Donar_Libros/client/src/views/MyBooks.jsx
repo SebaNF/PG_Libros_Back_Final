@@ -71,7 +71,7 @@ const MyBooks = () => {
                 <div className="card_form">
                     <h1>mis solicitudes de intercambio</h1>
                     <div className="card">
-                        <table className='table'>
+                        <table className='table table-hover mt-3'>
                             <thead>
                                 <tr>
                                     <th>Titulo</th>
@@ -94,7 +94,7 @@ const MyBooks = () => {
                 <div className="card_form">
                     <h1>mis libros</h1>
                     <div className="card">
-                        <table className='table'>
+                        <table className='table table-hover mt-3'>
                             <thead>
                                 <tr>
                                     <th>Titulo</th>
