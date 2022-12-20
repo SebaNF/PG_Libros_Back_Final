@@ -66,10 +66,10 @@ const MyBooks = () => {
     return (
         <div >
             
-            <div className='container d-flex justify-content-evenly'>
-
+            <div className='container'>
+                
                 <div className="card_form">
-                    <h1>Mis Libros que Interesan a Otros</h1>
+                    <h1>mis solicitudes de intercambio</h1>
                     <div className="card">
                         <table className='table'>
                             <thead>
@@ -92,7 +92,7 @@ const MyBooks = () => {
                 </div>
 
                 <div className="card_form">
-                    <h1>Mis Libros</h1>
+                    <h1>mis libros</h1>
                     <div className="card">
                         <table className='table'>
                             <thead>

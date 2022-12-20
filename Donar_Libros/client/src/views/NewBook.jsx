@@ -20,7 +20,7 @@ const NewBook = () => {
 
     return (
         <div className='card_libro'>
-            <h1 className='display-5 mt-3'>Ingreso de Libros</h1>
+            <h1 className='display-5 mt-3'>ingresa un nuevo libro</h1>
             <NewBookForm title="" author="" genre="" summary="" onSubmitProp={createBookFromService}/>
         </div>
     );
