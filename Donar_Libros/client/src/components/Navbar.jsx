@@ -1,10 +1,11 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import {useUser} from '../context/userContext';
 import { logout } from '../services/user.services';
 import { IconContext } from "react-icons";
 import { BsHouseDoor , BsSearch } from "react-icons/bs";
 import { GrLogout } from "react-icons/gr";
+import { getMyBooksThatInterestOthers } from '../services/book.services';
 
 
 
@@ -12,6 +13,7 @@ const Navbar = () => {
     const {user,setUser} = useUser();
     const [query, setQuery] = useState();
     const navigate = useNavigate();
+    const [booksThatInterestOthers , setBookThatInterestOthers] = useState();
 
     
 
@@ -32,6 +34,7 @@ const Navbar = () => {
         }
         else window.alert("Error. No hemos podido desloguear tu usuario")
     };
+
     const addParams = (e) =>{
         e.preventDefault();
         const form = document.getElementById('search-input');
@@ -59,9 +62,26 @@ const Navbar = () => {
         navigate('/my-trades');
     };
 
+    const getBooksThatInterestOthersFromService = async () => {
+        try{
+            const result = await getMyBooksThatInterestOthers(user._id);
+            const count = result.data.length;
+            console.log(count)
+            setBookThatInterestOthers(count);
+        }catch(err){
+            console.log(err)
+        }
+    };
+
+
+
+    useEffect(() => {
+        getBooksThatInterestOthersFromService();
+    }, [user]);
+
 
     return (
-      <div>
+    <div>
         <header>
                 <nav id='nav-bar-container' className="navbar navbar-expand-md navbar-dark bg-dark ps-5 pe-5 pt-3 pb-3">
                     <span className="navbar-brand">
@@ -109,11 +129,11 @@ const Navbar = () => {
 
                             {user &&
                             <li className="nav-item">
-                                <button className="btn btn-outline-light" onClick={()=>toMyTrades()}>
+                                <button className="btn btn-outline-light position-relative" onClick={()=>toMyTrades()}>
                                     mis intercambios
+                                    <span className='position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger'>{booksThatInterestOthers}</span>
                                 </button>
                             </li>}
-
                         </ul>
                     </div>
 
@@ -147,7 +167,7 @@ const Navbar = () => {
                 </nav>
                 
             </header>
-        </div>
+    </div>
     );
 }
 
