@@ -21,7 +21,7 @@ const Navbar = () => {
         if(user){
             return(<>¡Bienvenido/a {user.firstName}!</>)
         }else{
-            return(<>Por favor, inicia sesión</>)
+            return(<>Debes iniciar sesion o tener un usuario para intercambiar tus libros</>)
         }
     };
 
