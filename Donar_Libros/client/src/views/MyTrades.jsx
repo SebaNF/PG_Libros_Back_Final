@@ -32,10 +32,14 @@ const MyTrades = () => {
     const setBkId = (value) => {
         getOneBookFromService(value);
     };
-
+ 
     const toTradeOne = (value) => {
         navigate(`/user/${value}/trade/${tradeId}`)
     };
+
+    const toNewBook = () => {
+        navigate('/new-book');
+    }
 
 
     useEffect(() => {
@@ -54,17 +58,26 @@ const MyTrades = () => {
                             <thead>
                                 <tr>
                                     <th>Titulo</th>
-                                    <th>Acciones</th>                        
+                                    <th></th>                        
                                 </tr>
                             </thead>
                             <tbody>
-                            {booksThatInterestOthers?.map((book,idx)=>(
-                                    <tr key={idx}>
-                                        <td><p>{book.title}</p></td>
-                                        <td><button className='btn btn-dark' onMouseOver={()=>setBkId(book._id)} onClick={()=>toTradeOne(book.interestId)}>Ver informacion</button>
-                                        </td>    
-                                    </tr>
-                                ))}
+                                {booksThatInterestOthers?.length === 0 ? 
+                                    <tr>
+                                        <td>
+                                            <p> Lo sentimos, todavía no tienes a algún interesado en tus libros, pero recuerda: "la paciencia es el arte de ocultar tu impaciencia". </p>
+                                        </td>
+                                        <td>
+                                            <button className='btn btn-secondary' onClick={()=>toNewBook()}>crear nuevo libro</button>
+                                        </td>
+                                    </tr> :
+                                    booksThatInterestOthers?.map((book,idx)=>(
+                                        <tr key={idx}>
+                                            <td><p>{book.title}</p></td>
+                                            <td><button className='btn btn-dark' onMouseOver={()=>setBkId(book._id)} onClick={()=>toTradeOne(book.interestId)}>Ver informacion</button>
+                                            </td>    
+                                        </tr>
+                                    ))}
                             </tbody>
                         </table>
                     </div>

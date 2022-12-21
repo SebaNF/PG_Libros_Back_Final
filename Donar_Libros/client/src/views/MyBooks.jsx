@@ -1,5 +1,5 @@
 import React,{useState,useEffect} from 'react';
-import { useNavigate } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom';
 import { useUser } from '../context/userContext';
 import {  deleteOneBook } from '../services/book.services';
 import { getUser } from '../services/user.services';
@@ -28,6 +28,10 @@ const MyBooks = () => {
         }catch(err){
             console.log(err)
         }
+    };
+
+    const toNewBook = () => {
+        navigate('/new-book');
     }
 
 
@@ -46,11 +50,19 @@ const MyBooks = () => {
                             <thead>
                                 <tr>
                                     <th>Titulo</th>
-                                    <th>Acciones</th>                        
+                                    <th></th>                        
                                 </tr>
                             </thead>
                             <tbody>
-                            {myBooks?.map((book,idx)=>(
+                                {myBooks?.length === 0 ? 
+                                <tr>
+                                    <td>
+                                        <p>Parece que no tienes libros en tu coleccion; "todos viven de <del>vender</del> intercambiar algo".</p>
+                                    </td>
+                                    <td>
+                                        <button className='btn btn-secondary' onClick={()=>toNewBook()}>crear nuevo libro</button>
+                                    </td>
+                                </tr> : myBooks?.map((book,idx)=>(
                             <tr key={idx}>
                                 <td>{book.title}</td>   
                                 <td><button className='btn btn-normal' onClick={()=>deleteOneBookFromServices(book._id)}>Borrar</button></td>    
