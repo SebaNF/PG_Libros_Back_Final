@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import {useUser} from '../context/userContext';
 import { logout } from '../services/user.services';
 import { IconContext } from "react-icons";
-import { BsHouseDoor } from "react-icons/bs";
+import { BsHouseDoor , BsSearch } from "react-icons/bs";
 import { GrLogout } from "react-icons/gr";
 
 
@@ -96,7 +96,7 @@ const Navbar = () => {
                             {user && 
                             <li className="nav-item">
                                 <button className="btn btn-outline-light" onClick={()=>toCreateNewBook()}>
-                                    Nuevo libro
+                                    nuevo libro
                                 </button>
                             </li>}
 
@@ -121,7 +121,11 @@ const Navbar = () => {
                     <div className='nav-form'>
                         <form className='nav-form' onSubmit={addParams}>
                             <input id='search-input' className='subnav-input rounded' type='text' placeholder='Buscar' onChange={(e)=>setQuery(e.target.value)}></input>
-                            <button type='submit' className='btn subnav-button-search'>Buscar</button>
+                            <button type='submit' className='btn btn-light btn-sm'>
+                                <IconContext.Provider value={{size:'15px'}}>
+                                    <BsSearch/>
+                                </IconContext.Provider>
+                            </button>
                         </form>
                     </div>
                         

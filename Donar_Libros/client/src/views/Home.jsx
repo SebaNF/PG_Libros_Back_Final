@@ -1,15 +1,11 @@
 import React, {useState,useEffect} from 'react';
 import { useUser } from '../context/userContext';
-import { useNavigate } from 'react-router-dom';
 import { getAllBooks , addBookToInterest } from '../services/book.services';
-
-
-
 
 const Home = () => {
     const [books,setBooks] = useState([]);
     const {user, setUser} = useUser();
-    const navigate = useNavigate();
+    
 
     const getAllBooksFromService = async () => {
         try{
@@ -29,7 +25,6 @@ const Home = () => {
         try{
             const response = await addBookToInterest(bookId,userId)
             setUser(response.data.user);
-            // navigate(`/my-books`);
         }catch(err){
             console.log(err)
         }
@@ -42,7 +37,7 @@ const Home = () => {
         if(user){
             if(aux.includes(true)){
                 return(<>
-                    <button  className="btn btn-info" onClick={()=>alert("Debes esperar a la respuesta del dueño del libro")}><span className='spinner-border spinner-border-sm me-2'></span>pendiente</button>
+                    <button  className="btn btn-info" onClick={()=>alert("Debes esperar a que el dueño del libro se ponga en contacto")}><span className='spinner-border spinner-border-sm me-2'></span>pendiente</button>
                     </>)
             }else{
                 return(<><button type="button" className="btn btn-warning" onClick={()=>addBookToInterestFromService(book._id,user._id)}>me interesa</button></>)
