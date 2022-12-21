@@ -64,10 +64,13 @@ const Navbar = () => {
 
     const getBooksThatInterestOthersFromService = async () => {
         try{
-            const result = await getMyBooksThatInterestOthers(user._id);
-            const count = result.data.length;
-            console.log(count)
-            setBookThatInterestOthers(count);
+            if(user){
+                const result = await getMyBooksThatInterestOthers(user._id);
+                const count = result.data.length;
+                if(count !== 0){
+                    setBookThatInterestOthers(count);
+                }
+            }
         }catch(err){
             console.log(err)
         }

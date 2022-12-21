@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { useUser } from '../context/userContext';
 import {  deleteOneBook } from '../services/book.services';
 import { getUser } from '../services/user.services';
+import Swal from 'sweetalert2';
 
 
 const MyBooks = () => {
@@ -24,7 +25,11 @@ const MyBooks = () => {
         try{
             await deleteOneBook(data,user._id);
             setMyBooks(myBooks.filter(book => book._id !==data));
-            alert("Libro borrado");
+            Swal.fire({
+                title:"¡Evanesco!",
+                text:"libro borrado",
+                icon:"success"
+            })
         }catch(err){
             console.log(err)
         }

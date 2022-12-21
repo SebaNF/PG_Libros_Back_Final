@@ -3,6 +3,7 @@ import { useParams , useNavigate } from 'react-router-dom';
 import { getAllBookOfAnUser } from '../services/book.services';
 import { addToTrade } from '../services/trade.services';
 import { useUser } from '../context/userContext';
+import Swal from 'sweetalert2';
 
 const TradeOne = () => {
     const {id,tradeId} = useParams();
@@ -16,8 +17,12 @@ const TradeOne = () => {
             if(result.data.length !== 0){
                 setBooks(result.data);
             }else{
-                alert("Ups, el usuario no tiene libros para intecambiar");
-                navigate("/")
+                Swal.fire({
+                    title:"Ups...",
+                    text:"el usuario no tiene libros para intecambiar",
+                    icon:"error"
+                });
+                navigate("/my-trades");
             }
         }catch(err){
             console.log(err)
