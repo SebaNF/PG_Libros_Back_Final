@@ -29,7 +29,7 @@ const Home = () => {
         try{
             const response = await addBookToInterest(bookId,userId)
             setUser(response.data.user);
-            navigate(`/my-books`);
+            // navigate(`/my-books`);
         }catch(err){
             console.log(err)
         }

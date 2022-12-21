@@ -11,7 +11,7 @@ const NewBook = () => {
     const createBookFromService = async (values) => {
         try{
             await createBook(user._id,values);
-            navigate('/');
+            navigate('/my-books');
         }catch(err){
             console.log(err)
         }
